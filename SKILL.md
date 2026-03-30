@@ -134,6 +134,8 @@ What they protect: reputation, territory, relationships, process.
 
 **Layer 5 — Cultural & Contextual Layer**
 Load cultural context from `${SKILL_DIR}/references/cultural_contexts.md`.
+Load async communication calibration from `${SKILL_DIR}/references/async_communication.md`.
+Load gender dynamics overlay from `${SKILL_DIR}/references/gender_dynamics.md` (when relevant).
 Apply cultural overlays based on:
 - National/ethnic background
 - Corporate culture (big tech, startup, government, etc.)
@@ -253,10 +255,13 @@ deadline-slip, resource-request, cross-team-dependency, scope-change, delegation
 credit-dispute, blame-deflection, territory-invasion, public-disagreement, passive-aggression
 
 **Workplace — Career:**
-promotion-ask, salary-negotiation, skip-level-meeting, performance-review, resignation
+promotion-ask, salary-negotiation (with rejection recovery), skip-level-meeting, performance-review (with self-review calibration)
 
-**Workplace — Leadership:**
-difficult-feedback, team-restructure, underperformer-conversation, new-manager-transition
+**Workplace — Boundaries:**
+saying-no-to-boss, pushing-back-on-deadline, scope-creep-defense, protecting-work-life-balance
+
+**Workplace — Communication:**
+async-tone-calibration, meeting-vs-message-decision, email-length-optimization
 
 **Personal — Family:**
 financial-discussion, parenting-disagreement, boundary-setting, difficult-news

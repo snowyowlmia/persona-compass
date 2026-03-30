@@ -92,6 +92,27 @@ Each template defines: context setup, persona-specific prediction logic, and str
 - Relationship persona: Frame as long-term partnership investment
 - Power persona: Create perceived BATNA (best alternative)
 
+**Deep-Dive: Salary Negotiation Playbook**
+
+*Timing Decision Tree:*
+- Company just had layoffs → Wait 6-8 weeks minimum, then frame: "I'm committed to this team. I want to make sure my compensation reflects my expanded role."
+- Strong performance review → Strike within 2 weeks while data is fresh
+- Budget cycle starting → Get your ask in BEFORE allocations are decided
+- Boss is stressed/overwhelmed → Wait for a calm week, not a crisis week
+
+*If Rejected — Recovery Scripts:*
+- "I understand. Can we set a specific date to revisit? I'd like to know what milestones would make this possible."
+- "If a salary increase isn't possible right now, could we discuss [equity/bonus/title/remote flexibility/conference budget]?"
+- "What would need to be true in 6 months for you to say yes?"
+- For D-type boss: "I want to make sure we're aligned on what success looks like for this role. Can we define the criteria for the next level?"
+- For S-type boss: "I completely understand the constraints. I appreciate you hearing me out. Can I check back in [timeframe]?"
+
+*Brag Sheet Framework:*
+1. Revenue/impact: "I [action] which resulted in [measurable outcome]"
+2. Scope expansion: "My responsibilities now include [X, Y, Z] which are [level above] responsibilities"
+3. Market data: "Comparable roles at [companies] pay [$range]"
+4. Retention argument: "Investing in my compensation is more cost-effective than replacement cost"
+
 ### skip-level-meeting
 **Setup:** You have a meeting with [persona], who is your manager's manager.
 **Preparation by Persona Type:**
@@ -99,11 +120,70 @@ Each template defines: context setup, persona-specific prediction logic, and str
 - I-type skip: Be personable, share enthusiasm, connect your work to vision
 - C-type skip: Be precise, bring data, show thoroughness
 
+---
+
+## Workplace — Boundary Setting (New Section)
+
+### saying-no-to-boss
+**Setup:** Your boss asks you to take on additional work that exceeds your capacity.
+**Scripts by Boss Persona:**
+- D-type boss: "I can take this on if we deprioritize [X]. Which would you prefer?" (Give them control over the tradeoff)
+- I-type boss: "I love the idea! To do it justice, I'd need to move [X] to next sprint. Does that work?"
+- S-type boss: "I want to make sure I deliver quality on everything. Can we look at the timeline together?"
+- C-type boss: "Here's my current capacity: [list]. Adding this means [specific tradeoff]. What's the priority order?"
+
+### pushing-back-on-deadline
+**Setup:** You've been given an unrealistic deadline by [persona].
+**Framework:**
+1. Acknowledge the urgency (don't dismiss their timeline)
+2. Show the scope vs time tradeoff with specifics
+3. Offer alternatives: "I can deliver [reduced scope] by [their date] or [full scope] by [realistic date]"
+4. For D-types: Be direct about what won't get done, they respect honesty
+5. For S-types: Emphasize quality concerns, they care about doing it right
+
+### scope-creep-defense
+**Setup:** Your project scope keeps expanding without timeline/resource adjustments.
+**Strategy:**
+1. Document every scope addition with date and who requested it
+2. Create a visible "scope tracker" that shows original vs current
+3. Frame to boss: "The project has grown by 40% since kickoff. To maintain quality, we need either [more time/more people/reduced scope]"
+4. For political-player requesters: "Happy to add this — just need sign-off from [their boss] on the timeline impact"
+
+### protecting-work-life-balance
+**Setup:** [Persona] regularly contacts you outside work hours or expects always-on availability.
+**Scripts:**
+- Setting the boundary: "I'm most effective during [hours]. I'll respond to after-hours messages first thing the next morning unless it's truly urgent."
+- When they ignore it: "I saw your 11pm message and responded first thing this morning. For true emergencies, please text me directly."
+- For D-type boundary-crossers: "I want to give you my best work. That means I need to protect my focused hours."
+- Cultural layer (Chinese tech): 加班 culture is real; frame boundaries as efficiency, not laziness: "我在休息好的时候效率最高"
+
 ### performance-review
 **Setup:** You're giving or receiving a performance review with [persona].
 **Giving to High-D:** Be direct, specific, future-focused. Don't soften too much.
 **Giving to High-S:** Be gentle, acknowledge effort, give time to process.
 **Receiving from anyone:** Listen fully before responding; ask for specific examples.
+
+**Deep-Dive: Performance Review Playbook**
+
+*Writing Self-Review Calibrated to Boss Persona:*
+- D-type boss reads self-reviews? Lead with impact numbers. "Delivered X, resulting in $Y revenue / Z% improvement." Cut the narrative.
+- I-type boss? Tell the story of your wins. Show enthusiasm. Connect to team vision.
+- S-type boss? Acknowledge team contributions alongside yours. Show growth trajectory.
+- C-type boss? Be precise. Quantify everything. Reference specific metrics and goals.
+
+*Pre-Review Intelligence Gathering:*
+- Ask your boss 2 weeks before: "Is there anything specific you'd like me to prepare for our review?" (This reveals what they're planning to discuss)
+- Ask peers: "If you were writing my review, what would you highlight?" (This gives you ammunition AND reveals blind spots)
+
+*Handling Negative Feedback by Boss Type:*
+- From D-type: Don't get defensive. Say: "I hear you. What does 'good' look like in this area? Give me a specific target."
+- From I-type: They'll soften it so much you might miss it. Listen for "one area to consider" = this is important to them.
+- From S-type: They'll avoid saying anything harsh. Ask directly: "What's the one thing I should change? I'd rather hear it from you."
+- From C-type: They'll have detailed notes. Take them seriously. Say: "Can I have a copy of your notes so I can address each point?"
+
+*Post-Review Follow-Up (within 48 hours):*
+Send an email summarizing: (1) Key strengths acknowledged, (2) Areas for growth discussed, (3) Your specific action plan, (4) Timeline for check-in.
+This creates a written record and shows proactive follow-through.
 
 ---
 
