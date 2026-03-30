@@ -57,11 +57,20 @@ Then in Claude Code, just type `/persona-compass` or `/pc` to start.
 
 No setup needed. Open any Claude conversation, paste this to get started:
 
+**English:**
 ```
 Please read and follow the skill instructions at:
 https://raw.githubusercontent.com/snowyowlmia/persona-compass/main/SKILL.md
 
 Then help me analyze a person I work with.
+```
+
+**中文用户：**
+```
+请阅读并遵循以下技能说明：
+https://raw.githubusercontent.com/snowyowlmia/persona-compass/main/SKILL.md
+
+然后帮我分析一个我生活或工作中认识的人。
 ```
 
 Claude will follow the full framework in that conversation.
