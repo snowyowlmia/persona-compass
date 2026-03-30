@@ -92,10 +92,11 @@ Compass: Based on David's profile (D-type, high conscientiousness,
 - Attachment theory (for close relationships)
 
 ### 🎭 Scenario Simulator
-20+ built-in templates across workplace and personal contexts:
-- Deadline slip · Credit dispute · Salary negotiation
+30+ built-in templates across workplace and personal contexts:
+- Deadline slip · Credit dispute · Salary negotiation (with rejection recovery)
 - Territory defense · Skip-level prep · Team restructure
-- Financial discussions · Boundary setting · And more
+- Boundary setting (saying no, scope creep defense, work-life protection)
+- Performance review deep-dives · Financial discussions · And more
 
 ### 💬 Communication Script Generator
 Get ready-to-use messages calibrated to the person's psychology:
@@ -109,6 +110,18 @@ Built-in cultural context engine for:
 - 🇺🇸 American tech culture (radical candor, data-driven, visibility)
 - 🇯🇵🇰🇷🇮🇳 East Asian + South Asian overlays
 - Cross-cultural friction points and bridge strategies
+
+### 💬 Async & Remote Communication
+Calibrate your digital messages to each persona's psychology:
+- Persona-specific tone calibration for Slack, email, and async docs
+- "Sure." problem solved — what you send vs what they receive
+- Response time expectations and channel selection by personality type
+
+### ⚖️ Gender Dynamics Overlay
+Same behavior, different perception — navigate it:
+- Double-standard matrix: how identical actions are read differently by gender
+- Compensation negotiation strategies for women in tech
+- Reclaiming authority after being talked over or interrupted
 
 ### 📈 Self-Improving Model
 - Track prediction accuracy over time
@@ -166,9 +179,11 @@ persona-compass/
 ├── references/
 │   ├── personality_frameworks.md     # Big Five, DISC, TKI, etc.
 │   ├── cultural_contexts.md          # Cross-cultural communication
-│   ├── scenario_templates.md         # 20+ scenario templates
+│   ├── scenario_templates.md         # 30+ scenario templates
 │   ├── tag_translation.md            # Personality tag → behavior rules
-│   └── relationship_map.md           # Multi-persona network system
+│   ├── relationship_map.md           # Multi-persona network system
+│   ├── async_communication.md        # Async & remote messaging calibration
+│   └── gender_dynamics.md            # Gender bias navigation overlay
 ├── profiles/
 │   └── examples/
 │       └── demo_profiles.json        # 3 example personas
