@@ -42,10 +42,10 @@ No terminal. No coding. Works on Free, Pro, Max, Team, and Enterprise plans.
 ```bash
 # Project-level
 mkdir -p .claude/skills
-git clone https://github.com/merrymango/persona-compass .claude/skills/persona-compass
+git clone https://github.com/snowyowlmia/persona-compass .claude/skills/persona-compass
 
 # Global (all projects)
-git clone https://github.com/merrymango/persona-compass ~/.claude/skills/persona-compass
+git clone https://github.com/snowyowlmia/persona-compass ~/.claude/skills/persona-compass
 ```
 
 ### Install — Claude Mobile App
@@ -246,6 +246,6 @@ PRs welcome! Especially:
 
 Inspired by [colleague-skill](https://github.com/titanwings/colleague-skill) for the concept of packaging interpersonal knowledge as AI skills.
 
-Built with ❤️ by [MerryMango LLC](https://github.com/merrymango)
+Built with ❤️ by [@snowyowlmia](https://github.com/snowyowlmia)
 
 MIT License © 2026
