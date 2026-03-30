@@ -11,7 +11,7 @@ description: >
   "help me communicate with", "prepare me for a conversation with", MBTI, DISC,
   personality type, difficult coworker, toxic boss, or relationship dynamics.
   Supports both English and Chinese (中英双语). 职场读心术，AI 帮你搞定难搞的人。
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 allowed-tools: Read, Write, Edit, Bash
 ---
@@ -57,6 +57,115 @@ Detect the user's language from their first message.
 - Chinese input → respond in Chinese throughout
 - English input → respond in English throughout
 - Mixed → follow the dominant language, keep technical terms in English
+
+---
+
+## Privacy & Codename System
+
+**All persona data uses codenames, never real names in visible locations.**
+
+When creating a persona, ask the user to assign a codename (e.g., "alpha", "falcon",
+"coffee"). If they don't choose one, auto-generate a random codename.
+
+**Rules:**
+- File/directory names use codenames only: `personas/alpha/`, never `personas/jason-park/`
+- Commands use codenames: `/pc alpha`, never `/pc jason-park`
+- Output headers use codenames: "Strategy for Alpha", never "Strategy for Jason"
+- Real names are stored ONLY inside persona.md content, never in filenames or commands
+- If someone glances at the user's screen, they see generic professional-looking output
+
+**Why:** Users will be using this at work, possibly on shared screens or monitored
+devices. If a coworker sees "How to handle Jason's credit-stealing" on screen,
+the relationship is destroyed. Codenames prevent this.
+
+**Recommended usage environments (include in first-time user guidance):**
+- Best: Claude mobile app (private, personal device)
+- Good: Claude.ai in incognito/private browser tab
+- OK: Claude Code terminal (but close after use)
+- Risky: Shared/projected screen, company-monitored devices
+
+---
+
+## Platform Modes
+
+This skill operates in two modes depending on the environment:
+
+### File Mode (Claude Code / Claude.ai with Code Execution)
+- Persona data saved to `personas/{codename}/` directory
+- Full persistence across sessions
+- Relationship map stored in `personas/_network/map.json`
+- Version history and accuracy tracking in meta.json
+
+### Conversation Mode (Claude.ai without Code Execution / Mobile App)
+- Persona data lives in the conversation context and Claude's memory
+- No file system required — works purely through chat
+- User can export persona as a text block to save manually
+- When user returns and mentions a codename, check Claude's memory first
+- If memory has the persona data, load and use it directly
+- If not, ask: "I don't have [codename]'s profile loaded. Can you give me
+  a quick refresher? Or paste their profile if you saved it."
+
+**Auto-detect:** If file system tools are available, use File Mode.
+If not, gracefully fall back to Conversation Mode. Never error out
+because files aren't available.
+
+---
+
+## Quick Commands (Micro-Interactions)
+
+These commands are designed for 5-30 second interactions — the "daily vitamin"
+that builds habitual usage. They return SHORT outputs, not full analyses.
+
+### `/pc prep [codename]`
+**Pre-meeting cheat sheet.** Output exactly:
+- 3 lines: their communication style reminder
+- 2 lines: what to watch for in this interaction
+- 1 line: opening move recommendation
+Total output: 6 lines max. No persona card. No strategy analysis.
+
+Example output:
+```
+PREP: Alpha (D/I type)
+Style: Direct, bottom-line first. Don't hedge or over-explain.
+Watch: He may steer toward quarterly review — redirect to your agenda first.
+Watch: If he says "let me handle it," that means he's claiming ownership.
+Open with: "I want to align on [your topic] before we discuss anything else."
+```
+
+### `/pc tone [codename]`
+**5-second tone check before sending a message.** Output exactly:
+- 1 line: tone instruction
+Example: `Alpha: Direct. Lead with data. No small talk. No emoji.`
+
+### `/pc radar`
+**Weekly relationship scan.** Output exactly:
+- List of saved personas with last interaction date
+- Any pending follow-ups or predictions to verify
+- 1 suggested action for the coming week
+Total output: 10 lines max.
+
+### `/pc draft [codename] "[context]"`
+**Generate ONLY the message draft, nothing else.** No strategy analysis.
+No persona card summary. Just the ready-to-copy message.
+- Output 2-3 variants, each labeled with what it optimizes for
+- Specify the channel (Slack / email / talking points)
+- If email, include subject line
+- Keep each variant under 100 words for Slack, 200 for email
+
+Example:
+```
+DRAFT for Alpha — pushing back on timeline
+
+VARIANT A (firm but collaborative):
+"Hey [name] — looked at the timeline for X. At current scope, we're
+looking at [date], not [original date]. Two options: we cut [feature]
+to hit the original date, or we extend by 2 weeks for the full scope.
+What's your preference?"
+
+VARIANT B (create urgency):
+"Quick flag on X — timeline risk. Can we do 15 min today to align
+on scope vs deadline tradeoff? I have options ready."
+```
 
 ---
 
@@ -305,17 +414,19 @@ Each persona file remains independent; the map is an overlay.
 
 | Command | Action |
 |---------|--------|
-| `/pc list` | List all saved personas |
-| `/pc [slug]` | Load and query a persona |
-| `/pc new` | Create a new persona |
-| `/pc update [slug]` | Add information to existing persona |
-| `/pc compare [slug1] [slug2]` | Compare two personas side-by-side |
-| `/pc simulate [slug] [scenario]` | Run a scenario simulation |
-| `/pc draft [slug] [context]` | Draft a message for this person |
+| `/pc list` | List all saved personas (codenames only) |
+| `/pc [codename]` | Load and query a persona |
+| `/pc new` | Create a new persona (assigns codename) |
+| `/pc update [codename]` | Add new observations |
+| `/pc compare [cn1] [cn2]` | Compare two personas side-by-side |
+| `/pc simulate [cn] [scenario]` | Run a full scenario simulation |
+| `/pc draft [cn] "[context]"` | Generate ONLY a ready-to-copy message draft |
+| `/pc prep [codename]` | 6-line pre-meeting cheat sheet (30 sec) |
+| `/pc tone [codename]` | 1-line tone reminder (5 sec) |
+| `/pc radar` | Weekly relationship scan + suggested actions |
 | `/pc map` | Show relationship network |
-| `/pc map add [s1] [s2] [rel]` | Add a relationship between two personas |
+| `/pc map add [cn1] [cn2] [rel]` | Add a relationship |
 | `/pc map analyze` | Full network analysis with strategy |
-| `/pc map path [s1] [s2]` | Find influence path between two people |
 | `/pc map factions` | Detect faction groupings |
 
 ---

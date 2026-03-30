@@ -28,18 +28,32 @@ Persona Compass builds a model that helps you **navigate** them.
 
 ## Quick Start
 
-### Install
+### Install — Claude.ai (Browser, recommended for non-developers)
+
+1. Download this repo as a ZIP
+2. Go to Claude.ai → Settings → Customize → Skills
+3. Upload the skill folder
+4. Done! Claude will auto-activate when you ask about people/communication
+
+No terminal. No coding. Works on Free, Pro, Max, Team, and Enterprise plans.
+
+### Install — Claude Code (Terminal, for developers)
 
 ```bash
-# Claude Code (project-level)
+# Project-level
 mkdir -p .claude/skills
 git clone https://github.com/merrymango/persona-compass .claude/skills/persona-compass
 
-# Claude Code (global)
+# Global (all projects)
 git clone https://github.com/merrymango/persona-compass ~/.claude/skills/persona-compass
 ```
 
-Zero dependencies. No API keys. No pip install. Just clone and go.
+### Install — Claude Mobile App
+
+Use in Conversation Mode — no installation needed. Just start a chat and describe
+the person you want to analyze. Claude's memory will retain the persona across sessions.
+
+Zero dependencies. No API keys. No pip install. Just start talking.
 
 ### Use
 
@@ -79,6 +93,19 @@ Compass: Based on David's profile (D-type, high conscientiousness,
 
 ## Features
 
+### 🔒 Privacy-First Design
+- **Codename system**: All files and commands use codenames, never real names
+- No one glancing at your screen will know who you're analyzing
+- Best on mobile or incognito tab — designed for sensitive workplace use
+- All data stays local. No telemetry. No cloud sync.
+
+### ⚡ Quick Commands (5-30 seconds)
+Daily-use micro-interactions that build habitual usage:
+- `/pc prep alpha` → 6-line pre-meeting cheat sheet
+- `/pc tone alpha` → 1-line tone reminder before sending a message
+- `/pc radar` → weekly relationship scan with suggested actions
+- `/pc draft alpha "push back on deadline"` → copy-pasteable message, nothing else
+
 ### 🎯 Three-Tier Persona Building
 - **Quick Sketch**: Name + role + 3 adjectives → instant persona card
 - **Standard Profile**: 8-question guided interview → data-backed model
@@ -92,11 +119,10 @@ Compass: Based on David's profile (D-type, high conscientiousness,
 - Attachment theory (for close relationships)
 
 ### 🎭 Scenario Simulator
-30+ built-in templates across workplace and personal contexts:
-- Deadline slip · Credit dispute · Salary negotiation (with rejection recovery)
+20+ built-in templates across workplace and personal contexts:
+- Deadline slip · Credit dispute · Salary negotiation
 - Territory defense · Skip-level prep · Team restructure
-- Boundary setting (saying no, scope creep defense, work-life protection)
-- Performance review deep-dives · Financial discussions · And more
+- Financial discussions · Boundary setting · And more
 
 ### 💬 Communication Script Generator
 Get ready-to-use messages calibrated to the person's psychology:
@@ -110,18 +136,6 @@ Built-in cultural context engine for:
 - 🇺🇸 American tech culture (radical candor, data-driven, visibility)
 - 🇯🇵🇰🇷🇮🇳 East Asian + South Asian overlays
 - Cross-cultural friction points and bridge strategies
-
-### 💬 Async & Remote Communication
-Calibrate your digital messages to each persona's psychology:
-- Persona-specific tone calibration for Slack, email, and async docs
-- "Sure." problem solved — what you send vs what they receive
-- Response time expectations and channel selection by personality type
-
-### ⚖️ Gender Dynamics Overlay
-Same behavior, different perception — navigate it:
-- Double-standard matrix: how identical actions are read differently by gender
-- Compensation negotiation strategies for women in tech
-- Reclaiming authority after being talked over or interrupted
 
 ### 📈 Self-Improving Model
 - Track prediction accuracy over time
@@ -154,13 +168,16 @@ Same behavior, different perception — navigate it:
 | Command | Description |
 |---------|-------------|
 | `/pc` or `/persona-compass` | Start new persona or enter main menu |
-| `/pc list` | List all saved personas |
-| `/pc [slug]` | Load and query an existing persona |
-| `/pc new` | Create a new persona |
-| `/pc update [slug]` | Add new observations |
-| `/pc simulate [slug] [scenario]` | Run a scenario simulation |
-| `/pc draft [slug] [context]` | Draft a persona-calibrated message |
-| `/pc compare [slug1] [slug2]` | Compare two personas |
+| `/pc list` | List all saved personas (codenames only) |
+| `/pc [codename]` | Load and query an existing persona |
+| `/pc new` | Create a new persona (assigns codename) |
+| `/pc update [codename]` | Add new observations |
+| `/pc prep [codename]` | 30-second pre-meeting cheat sheet |
+| `/pc tone [codename]` | 5-second tone check before messaging |
+| `/pc draft [cn] "[context]"` | Copy-pasteable message draft only |
+| `/pc radar` | Weekly relationship scan |
+| `/pc simulate [cn] [scenario]` | Full scenario simulation |
+| `/pc compare [cn1] [cn2]` | Compare two personas |
 | `/pc map` | Show relationship network |
 | `/pc map analyze` | Full network + strategy analysis |
 | `/pc map factions` | Detect alliance/rival groupings |
@@ -179,11 +196,9 @@ persona-compass/
 ├── references/
 │   ├── personality_frameworks.md     # Big Five, DISC, TKI, etc.
 │   ├── cultural_contexts.md          # Cross-cultural communication
-│   ├── scenario_templates.md         # 30+ scenario templates
+│   ├── scenario_templates.md         # 20+ scenario templates
 │   ├── tag_translation.md            # Personality tag → behavior rules
-│   ├── relationship_map.md           # Multi-persona network system
-│   ├── async_communication.md        # Async & remote messaging calibration
-│   └── gender_dynamics.md            # Gender bias navigation overlay
+│   └── relationship_map.md           # Multi-persona network system
 ├── profiles/
 │   └── examples/
 │       └── demo_profiles.json        # 3 example personas
