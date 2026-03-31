@@ -318,6 +318,54 @@ After writing, confirm to the user with the success message from the template.
 
 ---
 
+## Memory Bridge Mode (Claude.ai Browser & Mobile)
+
+**For users without file system access (Claude.ai web, mobile app):**
+
+After completing a persona analysis, ALWAYS ask:
+
+```
+要把 [codename] 的画像存入 Claude Memory 吗？
+存了之后你在任何对话里提到 "[codename]"，我都能直接用这份画像，不用再重新描述。
+
+[Yes / No]
+```
+
+If user says **Yes**, use the memory tool to save a compact persona card:
+
+```
+PERSONA_COMPASS:[codename]
+role:[role] | rel:[relationship_to_user]
+disc:[disc_type] | conflict:[conflict_style] | stress:[stress_pattern]
+motivator:[primary_motivator] | trigger:[top_trigger_point]
+do:[top_2_tactics] | dont:[top_2_avoids]
+magic:"[single_best_phrase_calibrated_to_them]"
+culture:[cultural_context_if_relevant]
+confidence:[percent]% | updated:[YYYY-MM-DD]
+```
+
+**Example saved memory:**
+```
+PERSONA_COMPASS:sloth
+role:PM | rel:direct-manager-controls-sprint
+disc:D+C | conflict:avoider-delay | stress:more-control
+motivator:credit+visibility | trigger:bypassed-or-surprised
+do:data-first,give-credit-outlet | dont:oral-approvals,emotion
+magic:"frame everything as affecting your KPI"
+culture:big-tech-CN | confidence:72% | updated:2026-03-31
+```
+
+**In future conversations**, when user mentions "[codename]" or asks about that person:
+1. Check memory for `PERSONA_COMPASS:[codename]`
+2. If found: load the profile silently, do NOT ask user to re-describe
+3. Respond immediately using the stored profile
+4. Say: "Using your saved [codename] profile (confidence: X%). Update it with `/pc update [codename]`."
+
+**Memory limits:** Keep each persona card under 150 tokens.
+Store max 10-15 personas before older ones should be consolidated.
+
+---
+
 ## Query Mode: Using an Existing Persona Skill
 
 If the user loads a persona skill directly (`/{slug}` or references `personas/{slug}/SKILL.md`),
