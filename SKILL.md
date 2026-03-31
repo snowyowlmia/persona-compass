@@ -299,26 +299,37 @@ Output a structured persona card containing:
 - Areas needing more data: [list]
 ```
 
-### Step 5: Save Persona
+### Step 5: Generate Persona Skill File (Generator Mode)
 
-Write persona files to `./personas/{slug}/`:
-- `persona.md` — Full persona card
-- `meta.json` — Structured metadata
-- `observations.md` — Raw observations log
-- `corrections.md` — Correction history
+Do NOT just save data. Generate a fully self-contained SKILL.md for this person.
+This file IS the memory — Claude Code can load it directly with `/{slug}`.
+No re-entry of information will ever be needed again.
+
+**Follow the template exactly:** `${SKILL_DIR}/prompts/persona_skill_template.md`
+
+**Write to:** `personas/{slug}/SKILL.md`
+
+**Also write:** `personas/{slug}/observations.md` — raw data log (gitignored, real name may appear here)
+
+After writing, confirm to the user with the success message from the template.
+
+> **Why this architecture?** Like colleague-skill, the file itself is the memory layer.
+> One person = one loadable skill. Zero token overhead for context re-entry.
 
 ---
 
-## Query Mode: Using an Existing Persona
+## Query Mode: Using an Existing Persona Skill
 
-When a persona exists and user asks a question:
+If the user loads a persona skill directly (`/{slug}` or references `personas/{slug}/SKILL.md`),
+all context is already present in that file. Do NOT ask them to re-describe the person.
 
-1. Read `personas/{slug}/persona.md`
-2. If corrections exist, read `personas/{slug}/corrections.md` and apply overrides
-3. Determine query type:
+If queried from the main persona-compass skill:
+1. Check `personas/` directory for existing slugs
+2. If found, read `personas/{slug}/SKILL.md` directly — it is fully self-contained
+3. Proceed with the query using that profile
 
 **Scenario Simulation:**
-- User describes a situation → Predict the person's reaction
+- User describes a situation → Predict the person's reaction using the loaded profile
 - Load scenario templates from `${SKILL_DIR}/references/scenario_templates.md`
 - Output: predicted reaction + recommended strategy + specific scripts
 
@@ -329,27 +340,27 @@ When a persona exists and user asks a question:
 
 **Relationship Dynamics:**
 - User asks about multi-person dynamics
-- Cross-reference multiple personas if available
+- List available personas in `personas/` directory, cross-reference profiles
 - Output: power map + alliance/conflict analysis + optimal positioning
 
 **Message Drafting:**
-- User needs to write a specific message to this person
 - Generate 2-3 variants with different strategic approaches
 - Each variant labeled with what it optimizes for (e.g., "Preserve relationship" vs "Assert boundary")
 
 ---
 
-## Evolution Mode: Update Persona
+## Evolution Mode: Update Persona Skill
 
-When user provides new information or corrections:
+When user provides new information or corrections (`/pc update`):
 
-1. Read existing persona
+1. Read `personas/{slug}/SKILL.md`
 2. Classify the update:
-   - **New observation**: Append to observations.md, re-analyze relevant layers
-   - **Correction**: "He didn't react like you predicted" → Update prediction model
-   - **Context change**: "He got promoted" / "We had a falling out" → Adjust relationship dynamics
-3. Track prediction accuracy in meta.json
-4. Regenerate persona card with updated model
+   - **New observation**: "He reacted differently than predicted" → Append to observations.md, refine model layers
+   - **Correction**: Update prediction model, note prediction accuracy
+   - **Context change**: "She got promoted" / "We had a falling out" → Adjust trust level, relationship dynamics, strategy
+3. Rewrite `personas/{slug}/SKILL.md` with updated model
+4. Update `Last updated` date and recalculate confidence scores
+5. Confirm: "Updated {codename}'s profile. Here's what changed: [summary]"
 
 ---
 
